@@ -3,12 +3,10 @@
 
 
 @section('content')
+    <div class="container">
+        <div class="alert alert-dark mt-5" role="alert">
 
-
-<h2>Our content</h2>
-
-
+            <h1 class="text-center"> MCQ Examination System </h1>
+        </div>
+    </div>
 @endsection
-
-
-
