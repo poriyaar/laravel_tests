@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,10 @@ Route::get('/', function () {
 })->name('main');
 
 
- Route::get('/test' , function() {
-    return view('test');
- });
+ Route::get('/test' , [TestsController::class , 'getTestQuestions'])->name('getTestQuestions');
+
+ Route::post('/submitExam' , [TestsController::class , 'submitExam'])->name('submitExam');
+
 
 
 
