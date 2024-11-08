@@ -19,7 +19,7 @@ Route::get('/', function () {
 })->name('main');
 
 
- Route::get('/test' , [TestsController::class , 'getTestQuestions'])->name('getTestQuestions');
+ Route::get('/test' , [TestsController::class , 'getTestQuestions'])->name('getTestQuestions')->middleware('auth');
 
  Route::post('/submitExam' , [TestsController::class , 'submitExam'])->name('submitExam');
 

@@ -17,21 +17,21 @@
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{ $question->id }}" value="2"
-                            id="flexRadioDefault2" checked>
+                            id="flexRadioDefault2">
                         <label class="form-check-label" for="flexRadioDefault2">
                             {{ $question->answer2 }}
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{ $question->id }}" value="3"
-                            id="flexRadioDefault2" checked>
+                            id="flexRadioDefault2">
                         <label class="form-check-label" for="flexRadioDefault2">
                             {{ $question->answer3 }}
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{ $question->id }}" value="4"
-                            id="flexRadioDefault2" checked>
+                            id="flexRadioDefault2">
                         <label class="form-check-label" for="flexRadioDefault2">
                             {{ $question->answer4 }}
                         </label>
