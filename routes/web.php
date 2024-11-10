@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\TestsController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,9 @@ Route::get('/', function () {
 })->name('main');
 
 
- Route::get('/test' , [TestsController::class , 'getTestQuestions'])->name('getTestQuestions')->middleware('auth');
+Route::get('/test/{subject_id}', [TestsController::class, 'getTestQuestions'])->name('getTestQuestions')->middleware('auth');
 
- Route::post('/submitExam' , [TestsController::class , 'submitExam'])->name('submitExam');
+Route::post('/submitExam', [TestsController::class, 'submitExam'])->name('submitExam');
 
 
 
@@ -32,7 +33,20 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
+
+        // get all subjects
+        $subjects = DB::table('subjects')->get();
+
+
         // get data from database
-        return view('dashboard');
+        return view('dashboard', ['subjects' => $subjects]);
     })->name('dashboard');
 });
+
+
+Route::get('/register_exam/{subject_id}', [TestsController::class, 'registerExam'])->name('registerExam');
+
+Route::get('/allResults', [TestsController::class, 'allResults'])->name('allResults');
+Route::get('/allTests', [TestsController::class, 'allTests'])->name('allTests');
+
+Route::get('sendRemainingTime/{remaining_time}/subjectId/{subject_id}', [TestsController::class, "sendRemainingTime"])->name('sendRemainingTime');
