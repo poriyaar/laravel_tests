@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class TestsController extends Controller
 {
-
+    //add comment
     public function getTestQuestions(Request $request, $subject_id)
     {
         $student_already_registered = DB::table('students')->where('user_id', auth()->id())->where('subject_id', $subject_id)->exists();
